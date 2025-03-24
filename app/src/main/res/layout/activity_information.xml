@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformationActivity"
+    android:padding="16dp"
+    android:layout_margin="10dp">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Campus Navigation System"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:paddingBottom="16dp" />
+
+            <!-- Note About Simulation -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note: This is a simulation where we are using a graph to represent the CGC Jhanjeri campus. Each block is a node, and each connecting path is an edge with weights representing distances."
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Theme -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Theme: Shortest Distance Algorithms"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#444444"
+                android:paddingBottom="8dp" />
+
+            <!-- Algorithms Used -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Algorithms Used:\n• Dijkstra Algorithm\n• Bellman-Ford Algorithm\n• Johnson’s Algorithm"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Introduction -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Introduction\nThis project is a smart navigation tool built to help students, faculty, and visitors find the shortest path between different blocks in the CGC Jhanjeri campus. It visualizes and calculates paths using advanced shortest distance algorithms, showing the most efficient route between selected points."
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Map Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Map Used\nThe map used is a custom layout of CGC Jhanjeri campus. Each building block (like A, B, C…) is represented as a node, and the connections between them as edges in the graph. The coordinates are manually placed to simulate the actual layout of the campus."
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <ImageView
+                android:layout_width="350sp"
+                android:layout_height="400sp"
+                android:src="@drawable/ic_college_map"
+                android:scaleType="fitCenter"
+                />
+
+            <!-- Weight Explanation -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Weight on Graph\nThe weights assigned to the edges in the graph represent the distance between two blocks. These values are used by the algorithm to calculate the total cost of a path and determine the most optimal route."
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <ImageView
+                android:layout_width="350sp"
+                android:layout_height="400sp"
+                android:src="@drawable/ic_campus_graph"
+                android:scaleType="fitCenter"
+                />
+
+            <!-- Dijkstra -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Dijkstra Algorithm\nDijkstra's algorithm finds the shortest path from a source node to all other nodes using a priority queue (min-heap). It works efficiently for graphs with non-negative weights.\n\nTime Complexity: O((V + E) log V)"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Bellman-Ford -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Bellman-Ford Algorithm\nThis algorithm can handle negative weights and detects negative cycles. It relaxes all edges V-1 times.\n\nTime Complexity: O(V × E)"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Johnson -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Johnson's Algorithm\nJohnson’s algorithm is typically used for all-pairs shortest path problems. In this app, we simulate it by running Dijkstra from the selected source node.\n\nTime Complexity: O(VE + V log V)"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Extra Info -->
+
+            <ImageView
+                android:layout_width="385sp"
+                android:layout_height="500sp"
+                android:src="@drawable/ic_algorithm_used"
+                android:scaleType="fitCenter"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔹 Additional Info\n• The user selects a source, destination, and algorithm.\n• The system calculates the shortest path and animates it.\n• Users can reset or reselect options anytime.\n• It also displays algorithm explanation and total weight of the chosen path."
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="16dp" />
+
+            <!-- Footer -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Created by Vaibhav Rawat\nYear: 2025"
+                android:textStyle="italic"
+                android:textColor="#666666"
+                android:gravity="center"
+                android:paddingTop="24dp"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

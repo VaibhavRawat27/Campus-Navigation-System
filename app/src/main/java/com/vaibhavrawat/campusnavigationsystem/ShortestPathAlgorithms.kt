@@ -12,81 +12,90 @@ data class PathResult(
 object ShortestPathAlgorithms {
 
     fun dijkstra(graph: Graph, start: String, end: String): PathResult {
-        val distance = mutableMapOf<String, Int>()
-        val previous = mutableMapOf<String, String>()
+        val dist = mutableMapOf<String, Int>()
+        val prev = mutableMapOf<String, String>()
         val explanation = mutableListOf<String>()
-        val queue = PriorityQueue(compareBy<String> { distance[it] ?: Int.MAX_VALUE })
+        val queue = PriorityQueue(compareBy<String> { dist[it] ?: Int.MAX_VALUE })
 
-        for (node in graph.nodeNames) distance[node] = Int.MAX_VALUE
-        distance[start] = 0
+        graph.nodeNames.forEach { dist[it] = Int.MAX_VALUE }
+        dist[start] = 0
         queue.add(start)
+        explanation.add("Starting from node: $start")
 
         while (queue.isNotEmpty()) {
             val current = queue.poll()
+            explanation.add("Visiting node: $current with current distance ${dist[current]}")
+
             if (current == end) break
 
             for (edge in graph.getAdjEdges(current)) {
-                val newDist = distance[current]!! + edge.weight
-                if (newDist < distance[edge.to]!!) {
-                    explanation.add("Updated distance to ${edge.to}: $newDist via ${edge.from}")
-                    distance[edge.to] = newDist
-                    previous[edge.to] = current
+                val newDist = dist[current]!! + edge.weight
+                if (newDist < dist[edge.to]!!) {
+                    dist[edge.to] = newDist
+                    prev[edge.to] = current
                     queue.add(edge.to)
+                    explanation.add("  ↳ Updating distance to ${edge.to} = $newDist via $current")
                 }
             }
         }
 
-        val path = buildPath(previous, start, end)
+        val path = buildPath(prev, start, end)
         return PathResult(
             path,
-            distance[end] ?: Int.MAX_VALUE,
+            dist[end] ?: Int.MAX_VALUE,
             explanation,
-            "Dijkstra Algorithm:\nTime Complexity: O((V + E) log V)\nGreedy algorithm using priority queue (min-heap)."
+            "Dijkstra’s Algorithm\nTime Complexity: O((V + E) log V)"
         )
     }
 
     fun bellmanFord(graph: Graph, start: String, end: String): PathResult {
-        val distance = mutableMapOf<String, Int>()
-        val previous = mutableMapOf<String, String>()
+        val dist = mutableMapOf<String, Int>()
+        val prev = mutableMapOf<String, String>()
         val explanation = mutableListOf<String>()
 
-        for (node in graph.nodeNames) distance[node] = Int.MAX_VALUE
-        distance[start] = 0
+        graph.nodeNames.forEach { dist[it] = Int.MAX_VALUE }
+        dist[start] = 0
+        explanation.add("Starting from node: $start")
 
-        for (i in 0 until graph.nodeNames.size - 1) {
+        for (i in 1 until graph.nodeNames.size) {
+            explanation.add("Iteration $i:")
             for (edge in graph.getEdges()) {
-                val fromDist = distance[edge.from] ?: Int.MAX_VALUE
-                if (fromDist != Int.MAX_VALUE && fromDist + edge.weight < distance[edge.to]!!) {
-                    distance[edge.to] = fromDist + edge.weight
-                    previous[edge.to] = edge.from
-                    explanation.add("Relaxed edge ${edge.from} -> ${edge.to}, new dist: ${distance[edge.to]}")
+                val u = edge.from
+                val v = edge.to
+                val w = edge.weight
+
+                if (dist[u] != Int.MAX_VALUE && dist[u]!! + w < dist[v]!!) {
+                    dist[v] = dist[u]!! + w
+                    prev[v] = u
+                    explanation.add("  ↳ Relaxed edge $u → $v, new distance: ${dist[v]}")
                 }
             }
         }
 
-        val path = buildPath(previous, start, end)
+        val path = buildPath(prev, start, end)
         return PathResult(
             path,
-            distance[end] ?: Int.MAX_VALUE,
+            dist[end] ?: Int.MAX_VALUE,
             explanation,
-            "Bellman-Ford Algorithm:\nTime Complexity: O(V * E)\nCan handle negative weights."
+            "Bellman-Ford Algorithm\nTime Complexity: O(V * E)\nHandles negative weights."
         )
     }
 
     fun johnson(graph: Graph, start: String, end: String): PathResult {
-        return dijkstra(graph, start, end).copy(
-            algorithmInfo = "Johnson's Algorithm (Simplified for one source):\nTime Complexity: O(VE + V log V)\nUsed for all-pairs shortest paths, here simulated using Dijkstra."
+        val dijkstraResult = dijkstra(graph, start, end)
+        return dijkstraResult.copy(
+            algorithmInfo = "Johnson’s Algorithm (Simplified)\nUsed for all-pairs shortest path\nTime Complexity: O(VE + V log V)"
         )
     }
 
     private fun buildPath(prev: Map<String, String>, start: String, end: String): List<String> {
         val path = LinkedList<String>()
-        var current: String? = end
-        while (current != null && current != start) {
-            path.addFirst(current)
-            current = prev[current]
+        var curr = end
+        while (curr != start) {
+            path.addFirst(curr)
+            curr = prev[curr] ?: return emptyList()
         }
-        if (current != null) path.addFirst(start)
+        path.addFirst(start)
         return path
     }
 }

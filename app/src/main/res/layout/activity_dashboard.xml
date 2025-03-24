@@ -15,18 +15,44 @@
         android:padding="16dp">
 
         <!-- Heading -->
-        <TextView
-            android:id="@+id/textHeading"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Campus Map"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:id="@+id/cl"
+            tools:ignore="MissingConstraints">
+
+            <!-- Heading TextView -->
+            <TextView
+                android:id="@+id/textHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Campus Map Navigation System"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/infoButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Info Button (ImageView) -->
+            <ImageView
+                android:id="@+id/infoButton"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/ic_information"
+                android:contentDescription="Info"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="@+id/textHeading"
+                app:layout_constraintBottom_toBottomOf="@+id/textHeading"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <!-- Graph View -->
         <com.vaibhavrawat.campusnavigationsystem.CustomGraphView
@@ -35,7 +61,7 @@
             android:layout_height="500dp"
             android:layout_marginTop="12dp"
             android:background="#EEEEEE"
-            app:layout_constraintTop_toBottomOf="@id/textHeading"
+            app:layout_constraintTop_toBottomOf="@id/cl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

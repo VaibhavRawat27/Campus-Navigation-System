@@ -1,12 +1,14 @@
 package com.vaibhavrawat.campusnavigationsystem
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -64,6 +66,12 @@ class DashboardActivity : AppCompatActivity() {
                 textToggle.text = "▶ About this graph"
             }
         }
+
+        val infoButton: ImageView = findViewById(R.id.infoButton)
+        infoButton.setOnClickListener {
+            val intent = Intent(this, InformationActivity::class.java)
+            startActivity(intent)
+        }
         // Initialize graph
         graph = Graph()
         graph.addNode("A", 500f, 100f)
@@ -79,7 +87,7 @@ class DashboardActivity : AppCompatActivity() {
 
         graph.addEdge("A", "C", 5)
         graph.addEdge("A", "D", 4)
-        graph.addEdge("A", "J", 12)
+        graph.addEdge("D", "J", 12)
         graph.addEdge("B", "E", 4)
         graph.addEdge("D", "E", 3)
         graph.addEdge("E", "F", 2)
@@ -161,7 +169,7 @@ class DashboardActivity : AppCompatActivity() {
             sourceSpinner.setSelection(0)
             destinationSpinner.setSelection(0)
             algorithmSpinner.setSelection(0)
-            resultText.text = ""
+            resultText.text = "Path will appear here..."
             graphView.clearPath()
         }
 

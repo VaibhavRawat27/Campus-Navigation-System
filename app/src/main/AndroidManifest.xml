@@ -9,9 +9,13 @@
         android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_app_icon"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.CampusNavigationSystem"
         tools:targetApi="31">
+        <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
