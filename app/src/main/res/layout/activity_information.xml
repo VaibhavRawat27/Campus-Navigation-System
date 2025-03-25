@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".InformationActivity"
     android:padding="16dp"
-    android:layout_margin="10dp">
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="0dp"

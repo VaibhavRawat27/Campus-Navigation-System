@@ -1,6 +1,7 @@
 package com.vaibhavrawat.campusnavigationsystem
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             view.setPadding(0, systemBars.top, 0, systemBars.bottom)
             insets
         }
+
+        window.statusBarColor = Color.WHITE
+
+        ViewCompat.getWindowInsetsController(window.decorView)?.isAppearanceLightStatusBars = true
 
         titleTextView = findViewById(R.id.titleText)
 
