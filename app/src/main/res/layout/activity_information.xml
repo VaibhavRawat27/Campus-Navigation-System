@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".InformationActivity"
     android:padding="16dp"
+    android:layout_margin="10sp"
     android:background="@color/white">
 
     <ScrollView
@@ -26,7 +27,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Campus Navigation System"
+                android:text="About the project \nCampus Navigation System"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
@@ -134,7 +135,7 @@
             <!-- Extra Info -->
 
             <ImageView
-                android:layout_width="385sp"
+                android:layout_width="380sp"
                 android:layout_height="500sp"
                 android:src="@drawable/ic_algorithm_used"
                 android:scaleType="fitCenter"
@@ -152,7 +153,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Created by Vaibhav Rawat\nYear: 2025"
+                android:text="Created by Vaibhav Rawat\nYear: 2025 (MARCH)\nAs a part of Experiential Learning Project."
                 android:textStyle="italic"
                 android:textColor="#666666"
                 android:gravity="center"
