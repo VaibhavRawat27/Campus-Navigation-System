@@ -1,4 +1,4 @@
-<h1 align="center">🧭 Campus Navigation System - CGC Jhanjeri</h1>
+<h1 align="center">🧭 Campus Navigation System - Android Application</h1>
 
 <p align="center">
   An <b>Android-based campus navigation tool</b> that helps students, faculty, and visitors find the shortest path between blocks within the campus.<br>
