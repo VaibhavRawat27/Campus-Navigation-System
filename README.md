@@ -96,7 +96,7 @@ This project is a simple demonstration of how shortest path algorithms can be im
 
 <h2>📦 Download</h2>
 <p>
-You can download the latest APK from the <a href="https://github.com/your-repo/releases">Releases</a> section.
+You can download the latest APK from the <a href="(https://github.com/VaibhavRawat27/Campus-Navigation-System/releases/tag/V1.0)">Releases</a> section.
 </p>
 
 ---
