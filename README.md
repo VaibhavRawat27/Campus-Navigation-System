@@ -1,33 +1,9 @@
-🧭 Campus Navigation System - CGC Jhanjeri
-An Android-based campus navigation tool that helps students, faculty, and visitors find the shortest path between blocks within the campus (Map used: CGC Jhanjeri). The app uses graph algorithms like Dijkstra, Bellman-Ford, and Johnson’s to simulate and visualize the most efficient routes.
+<h1 align="center">🧭 Campus Navigation System - CGC Jhanjeri</h1> <p align="center"> An <b>Android-based campus navigation tool</b> that helps students, faculty, and visitors find the shortest path between blocks within the campus (Map used: <b>CGC Jhanjeri</b>).<br> The app uses <b>Dijkstra</b>, <b>Bellman-Ford</b>, and <b>Johnson’s</b> algorithms to simulate and visualize the most efficient routes. </p> <p align="center"><b>📍 Built with:</b> Android Studio (Kotlin) and Custom Graph Algorithms</p>
+<h2>🗺️ How It Works</h2>
+Each building (A, B, C...) is a <b>node</b>, and each path is an <b>edge</b> with weights representing real distances (in meters).
+Users can choose source, destination, and algorithm to find the optimal path.
 
-📍 Built with: Android Studio (Kotlin) and Custom Graph Algorithms
-
-🗺️ How It Works
-Each building (A, B, C...) is a node, and each path is an edge with weights representing real distances (in meters). Users can choose source, destination, and algorithm to find the optimal path.
-
-📌 Features
-Visualized shortest paths on campus
-Selectable algorithms
-Animated graph traversal
-Displays total path distance
-Clean, interactive UI
-
-📚 Algorithms Used
-Dijkstra:	Fastest for non-negative weights O((V + E) log V)
-Bellman-Ford:	Handles negative weights, simple O(V × E)
-Johnson’s:	All-pairs shortest paths simulation	O(VE + V log V)
-
-📷 Visuals
-🏫 College Map Layout
-<img src="assets/college_map.png" width="600"/>
-🔗 Graph Representation
-<img src="assets/campus_graph.png" width="600"/>
-📊 Algorithm Flow
-<img src="assets/algorithm_used.png" width="600"/>
-
-ℹ️ Additional Info
-Coordinates placed to replicate actual campus layout
-User-friendly UI with dropdown selection
-Reset and re-calculate any time
-Built as part of Experiential Learning Project (2025)
+<h2>📌 Features</h2> <ul> <li>Visualized shortest paths on campus</li> <li>Selectable algorithms</li> <li>Animated graph traversal</li> <li>Displays total path distance</li> <li>Clean, interactive UI</li> </ul>
+<h2>📚 Algorithms Used</h2> <table> <tr> <th align="left">Algorithm</th> <th align="left">Highlights</th> <th align="left">Time Complexity</th> </tr> <tr> <td><b>Dijkstra</b></td> <td>Fastest for non-negative weights</td> <td>O((V + E) log V)</td> </tr> <tr> <td><b>Bellman-Ford</b></td> <td>Handles negative weights, simple</td> <td>O(V × E)</td> </tr> <tr> <td><b>Johnson’s</b></td> <td>All-pairs shortest paths simulation</td> <td>O(VE + V log V)</td> </tr> </table>
+<h2>📷 Visuals</h2> <h4>🏫 College Map Layout</h4> <img src="assets/college_map.png" width="600"/> <h4>🔗 Graph Representation</h4> <img src="assets/campus_graph.png" width="600"/> <h4>📊 Algorithm Flow</h4> <img src="assets/algorithm_used.png" width="600"/>
+<h2>ℹ️ Additional Info</h2> <ul> <li>Coordinates placed to replicate actual campus layout</li> <li>User-friendly UI with dropdown selection</li> <li>Reset and re-calculate any time</li> <li>Built as part of <b>Experiential Learning Project (2025)</b></li> </ul>
