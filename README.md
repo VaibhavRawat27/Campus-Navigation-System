@@ -62,14 +62,15 @@ Users can choose a source, destination, and algorithm to compute the optimal pat
 
 ---
 
-<h2>ℹ️ Additional Info</h2>
+<h2>ℹ️ Additional Information</h2>
 <ul>
-  <li>Coordinates placed to match the real CGC Jhanjeri campus layout</li>
-  <li>Graph built manually to demonstrate algorithm traversal</li>
-  <li>Dropdown UI to select source, destination, and algorithm</li>
-  <li>Reset and re-calculate at any time</li>
-  <li>Designed as an <b>Experiential Learning Project (March 2025)</b></li>
+  <li>The graph is intended to replicate the original campus layout, though it may not be an exact copy.</li>
+  <li>The graph was manually constructed to demonstrate algorithm traversal.</li>
+  <li>Includes a dropdown UI to select the source, destination, and algorithm.</li>
+  <li>Supports reset and re-calculation at any time.</li>
+  <li>Developed as an <b>Experiential Learning Project (March 2025)</b>.</li>
 </ul>
+
 
 ---
 
